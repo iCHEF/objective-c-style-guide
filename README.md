@@ -113,6 +113,12 @@ These guidelines build on top of [Github Objective-C Code Guidelines](https://gi
  	}
 ```
 
+```objc
+ 	if (object == nil) {
+ 		//null comparison
+ 	}
+```
+
 ## Categories
 
  * Categories should be named for the sort of functionality they provide. Don't create umbrella categories.
