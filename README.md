@@ -5,6 +5,29 @@ These guidelines build on top of [Github Objective C Code Guidelines](https://gi
  * All iCHEF POS class uses `iC`
  	* iCSocketContainer
  * **No Abbreviation** for noun, verb, or adjective in class or method name.
+ * Collection variables use the following abbreviation.
+ 
+```objc
+	NSArray *testArray;
+	NSMutableArray *testArray;
+	NSDictionary *testDict;
+	NSMutableDictionary *testDict;
+	NSSet *testSet;
+```
+* All boolean Variables start with **is** prefix.
+```objc
+	BOOL isEdited;
+```
+* All String variables ends with **String** suffix.
+```objc
+	NSString *testString;
+```
+
+* All String variables can be converted to JSON ends with **JSONString** suffix.
+```objc
+	NSString *testJSONString = @"{"test":"test"}";
+	[testJSONString toJSON];
+```
 
 ## Documentation and Organization
 
@@ -18,7 +41,7 @@ These guidelines build on top of [Github Objective C Code Guidelines](https://gi
  * All non-null property should be specified. Otherwise, nullable is the default.
  
   ```objc
-   @property (copy, nonnull) NSArray *allItems;
+	@property (copy, nonnull) NSArray *allItems;
   ```
   
  * Use `#pragma mark - ` to categorize methods into functional groupings and protocol implementations, following this general structure:
@@ -26,14 +49,64 @@ These guidelines build on top of [Github Objective C Code Guidelines](https://gi
 ```objc
 #pragma mark - Lifecycle
 
-+ (instancetype)objectWithThing:(id)thing {}
-- (instancetype)init {}
-- (void)viewDidLoad {}
-- (void)dealloc{}
+	+ (instancetype)objectWithThing:(id)thing {}
+	- (instancetype)init {}
+	- (void)viewDidLoad {}
+	- (void)dealloc{}
 
 #pragma mark - Other methods
 
-- (void)drawRect:(CGRect) {}
+	- (void)drawRect:(CGRect) {}
 ```
  * If a method call is too long, press **Enter** in the header of method segment, just let Xcode to align vertically with **:**
- * 
+ * All publlic methods or properties should be placed in .h files, all private methods or properties shoud be in .m files.
+
+## Import Policy
+ * Only import what you need in header file , reduce the duty of pch file.
+
+## Object Literals
+
+* All NSNumber, NSDictionary, and NSArray must use Object Literals.
+
+```objc
+	NSNumber *orderCount = @(1 + 2);
+```
+
+```objc
+ 	NSDictionary *testDict = @{obj1, obj2, obj3};
+```
+
+```objc
+ 	NSArray *orderArray = @[obj1, obj2, obj3];
+```
+
+## Control Structures
+ * Use ternary operators to help value assignment.
+ * Long form ternary operators should be wrapped in parentheses and only used for assignment and arguments.
+
+```objc
+	Blah *a = (stuff == thing ? foo : bar);
+```
+
+* Short form, `nil` coalescing ternary operators should avoid parentheses.
+
+```objc
+	Blah *b = thingThatCouldBeNil ?: defaultValue;
+```
+* Comparisons should be explicit for everything except BOOLs.
+
+```objc
+	if (isEdited) {
+		// Bool comparison
+ 	}
+```
+
+```objc
+ 	if (count >= 3) {
+ 		//number comparison
+ 	}
+```
+
+## Categories
+
+ * Categories should be named for the sort of functionality they provide. Don't create umbrella categories.
