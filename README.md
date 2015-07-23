@@ -15,19 +15,25 @@ These guidelines build on top of [Github Objective C Code Guidelines](https://gi
 	- (nullable returnType *)itemWithName:(nonnull NSString *)parameter; 
 
  ```
+ * All non-null property should be specified. Otherwise, nullable is the default.
  
- * Use `#pragma mark`s to categorize methods into functional groupings and protocol implementations, following this general structure:
+  ```objc
+   @property (copy, nonnull) NSArray *allItems;
+  ```
+  
+ * Use `#pragma mark - ` to categorize methods into functional groupings and protocol implementations, following this general structure:
 
 ```objc
-#pragma mark Lifecycle
+#pragma mark - Lifecycle
 
 + (instancetype)objectWithThing:(id)thing {}
 - (instancetype)init {}
 - (void)viewDidLoad {}
 - (void)dealloc{}
 
-#pragma mark Other methods
+#pragma mark - Other methods
 
 - (void)drawRect:(CGRect) {}
 ```
-
+ * If a method call is too long, press **Enter** in the header of method segment, just let Xcode to align vertically with **:**
+ * 
