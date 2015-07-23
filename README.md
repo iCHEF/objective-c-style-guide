@@ -1,18 +1,23 @@
-These guidelines build on top of [Github Objective C Code Guidelines](https://github.com/github/objective-c-style-guide), the following guidelines are all **Mandantory**, you can follow Github's guideline if it is not contray to iCHEF guidelines.
+These guidelines build on top of [Github Objective-C Code Guidelines](https://github.com/github/objective-c-style-guide), the following guidelines are all **Mandantory**, you can follow Github's guideline if it is not contray to iCHEF guidelines.
  
 ## Code Naming
 
  * All iCHEF POS class uses `iC`
- 	* iCSocketContainer
- * **No Abbreviation** for noun, verb, or adjective in class or method name.
- * Collection variables use the following abbreviation.
+ 
+ ```objc
+ 	iCSocketContainer *socket = [iCSocketContainer createSocket];
+ ```
+ 
+ * **No Abbreviations** for noun, verb, or adjective in class, method, or variable names.
+ * Only Dictionary variables use the following abbreviation. Mutable or immutable collections are the same.
  
 ```objc
-	NSArray *testArray;
-	NSMutableArray *testArray;
 	NSDictionary *testDict;
 	NSMutableDictionary *testDict;
+	NSArray *testArray;
+	NSMutableArray *testArray;
 	NSSet *testSet;
+	NSMutableSet *testSet;
 ```
 * All boolean Variables start with **is** prefix.
 ```objc
