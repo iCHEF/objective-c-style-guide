@@ -8,16 +8,17 @@ These guidelines build on top of [Github Objective-C Code Guidelines](https://gi
  	iCSocketContainer *socket = [iCSocketContainer createSocket];
  ```
  
- * **No Abbreviations** for noun, verb, or adjective in class, method, or variable names.
- * Only Dictionary variables use the following abbreviation. Mutable or immutable collections are the same.
- 
+ * **No Abbreviations** for noun, verb, or adjective in class, method, or any variable names.
 ```objc
-	NSDictionary *testDict;
-	NSMutableDictionary *testDict;
+	NSDictionary *testDictionary;
+	NSMutableDictionary *testDictionary;
 	NSArray *testArray;
 	NSMutableArray *testArray;
 	NSSet *testSet;
 	NSMutableSet *testSet;
+	
+	- (void) getRestaurantDataWithUUID:(NSString *) UUIDString;
+	
 ```
 * All boolean Variables start with **is** prefix.
 ```objc
